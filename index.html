@@ -1,31 +1,198 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
+<script type="text/javascript">
+    function clicked() {
+       if (confirm(prediction_text)) {
+           yourformelement.submit();
+       } else {
+           return false;
+       }
+    }
+
+</script>
+<style>
+
+body {
+  background: #C5E1A5;
+}
+
+
+
+form {
+  width: 30%;
+  margin: 60px auto;
+  background: #efefef;
+  padding: 60px 120px 80px 120px;
+  text-align: center;
+  -webkit-box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+  box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+}
+
+
+label {
+  display: block;
+  position: relative;
+  margin: 40px 0px;
+}
+
+.label-txt {
+  position: absolute;
+  top: -1.6em;
+  padding: 10px;
+  font-family: sans-serif;
+  font-size: .8em;
+  letter-spacing: 1px;
+  color: rgb(120,120,120);
+  transition: ease .3s;
+}
+
+
+.input {
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.line-box {
+  position: relative;
+  width: 100%;
+  height: 1px;
+  background: #BCBCBC;
+}
+
+.line {
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #8BC34A;
+  transition: ease .6s;
+}
+
+.input:focus + .line-box .line {
+  width: 100%;
+}
+
+.label-active {
+  top: -3em;
+}
+
+button {
+  display: inline-block;
+  padding: 12px 24px;
+  background: rgb(220,220,220);
+  font-weight: bold;
+  color: rgb(120,120,120);
+  border: none;
+  outline: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: ease .3s;
+}
+
+button:hover {
+  background: #8BC34A;
+  color: #ffffff;
+}
+</style>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SKLESRN Boston Dataset Analysis</title>
+
 </head>
 
 <body>
 
     <div style="color:blue">
         <form action="{{ url_for('predict')}}" method="post">
-            <h2>Boston House Price Prediction</h2>
-            <h3>Percentage of Lower status population</h3>
-            <input id="first" name="LSTAT" type="number ">
-            <h3>No of Rooms</h3><br><input id="second" name="RM" required="required">
-            <h3>Tax</h3><input id="third" name="TAX" required="required">
-            <h3>Age of House?</h3><br><input id="fourth" name="AGE" required="required">
-            <h3>Crime Rate</h3><br><input id="fourth" name="CRIM" required="required">
-            <br><br><button id="sub" type="submit ">Calculate the House Price</button>
-            <br>
+          <h2 class="text-warning text-center">Boston House Price Prediction</h2>
 
-
-
-
+          <label>
+            <input type="text" class="input" name="RM" placeholder="No of Rooms"/>
+              <div class="line-box">
+                <div class="line"></div>
+              </div>
+          </label>
+          <label>
+            <input type="text" class="input" name="LSTAT" placeholder="Percentage of Lower status population(Range 0 to 50)"/>
+              <div class="line-box">
+                <div class="line"></div>
+              </div>
+          </label>
+          <label>
+            <input type="text" class="input" name="TAX" placeholder="Tax(Range 0 to 800)"/>
+              <div class="line-box">
+                <div class="line"></div>
+              </div>
+          </label>
+          <label>
+            <input type="text" class="input" name="AGE" placeholder="Proportion of owner-occupied units built prior to 1940(Range 0 to 100)"/>
+              <div class="line-box">
+                <div class="line"></div>
+              </div>
+          </label>
+          <label>
+            <input type="text" class="input" name="CRIM" placeholder="Crime Rate in Area(Range 0 to 100)"/>
+              <div class="line-box">
+                <div class="line"></div>
+              </div>
+          </label>
+          <label>
+            <input type="text" class="input" name="ZN" placeholder="Proportion of residential land(Range 0 to 100)"/>
+              <div class="line-box">
+                <div class="line"></div>
+              </div>
+          </label>
+          <label>
+            <input type="text" class="input" name="INDUS" placeholder="Proportion of non-retail business acres(Range 0 to 40)"/>
+              <div class="line-box">
+                <div class="line"></div>
+              </div>
+          </label
+          <label>
+            <input type="text" class="input" name="CHAS" placeholder="Charles River Boundary(0 for No or 1 for Yes)"/>
+              <div class="line-box">
+                <div class="line"></div>
+              </div>
+          </label>
+          <label>
+            <input type="text" class="input" name="NOX" placeholder="Nitric Oxides Concentration(Range 0 to 1)"/>
+              <div class="line-box">
+                <div class="line"></div>
+              </div>
+          </label>
+          <label>
+            <input type="text" class="input" name="DIS" placeholder="Distances to five Boston employment centres(Range 0 to 20)"/>
+              <div class="line-box">
+                <div class="line"></div>
+              </div>
+          </label>
+          <label>
+            <input type="text" class="input" name="PTRATIO" placeholder="Pupil-Teacher ratio by town(Range 0 to 100)"/>
+              <div class="line-box">
+                <div class="line"></div>
+              </div>
+          </label>
+          <label>
+            <input type="text" class="input" name="B" placeholder="Proportion of blacks by town(Range 0 to 1000)"/>
+              <div class="line-box">
+                <div class="line"></div>
+              </div>
+          </label>
+          <label>
+            <input type="text" class="input" name="RAD" placeholder="Accessibility to radial highways(Range 0 to 50)"/>
+              <div class="line-box">
+                <div class="line"></div>
+              </div>
+          </label>
+          <button type="submit" >Calculate the House Price</button>
         </form>
 
 
@@ -36,114 +203,6 @@
 
 
 
-    <style>
-        body {
-            background-color: lightslategray;
-            text-align: left;
-            padding: 0px;
-        }
-        
-        #research {
-            font-size: 18px;
-            width: 100px;
-            height: 23px;
-            top: 23px;
-        }
-        
-        #box {
-            border-radius: 60px;
-            border-color: 45px;
-            border-style: solid;
-            font-family: cursive;
-            text-align: center;
-            background-color: rgb(168, 131, 61);
-            font-size: medium;
-            position: absolute;
-            width: 700px;
-            bottom: 9%;
-            height: 850px;
-            right: 30%;
-            padding: 0px;
-            margin: 0px;
-            font-size: 14px;
-        }
-        
-        #fuel {
-            width: 83px;
-            height: 43px;
-            text-align: center;
-            border-radius: 14px;
-            font-size: 20px;
-        }
-        
-        #fuel:hover {
-            background-color: coral;
-        }
-        
-        #research {
-            width: 99px;
-            height: 43px;
-            text-align: center;
-            border-radius: 14px;
-            font-size: 18px;
-        }
-        
-        #research:hover {
-            background-color: coral;
-        }
-        
-        #resea {
-            width: 99px;
-            height: 43px;
-            text-align: center;
-            border-radius: 14px;
-            font-size: 18px;
-        }
-        
-        #resea:hover {
-            background-color: coral;
-        }
-        
-        #sub {
-            width: 120px;
-            height: 43px;
-            text-align: center;
-            border-radius: 14px;
-            font-size: 18px;
-        }
-        
-        #sub:hover {
-            background-color: darkcyan;
-        }
-        
-        #first {
-            border-radius: 14px;
-            height: 25px;
-            font-size: 20px;
-            text-align: left;
-        }
-        
-        #second {
-            border-radius: 14px;
-            height: 25px;
-            font-size: 20px;
-            text-align: center;
-        }
-        
-        #third {
-            border-radius: 14px;
-            height: 25px;
-            font-size: 20px;
-            text-align: center;
-        }
-        
-        #fourth {
-            border-radius: 14px;
-            height: 25px;
-            font-size: 20px;
-            text-align: center;
-        }
-    </style>
-</body>
+    </body>
 
 </html>
