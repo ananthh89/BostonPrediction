@@ -1,6 +1,16 @@
 
 <!DOCTYPE html>
 <html lang="en">
+<script>
+function clicked(e)
+{
+    if(!confirm('Are')) {
+        e.preventDefault();
+    }
+}
+</script>
+
+
 
 <style>
 
@@ -104,81 +114,81 @@ button:hover {
     <div style="color:blue">
         <form action="{{ url_for('predict')}}" method="post">
           <h2 class="text-warning text-center">Boston House Price Prediction</h2>
-          <h3>{{ prediction_text }}<h3>
+          <h3 color='red'>{{  prediction_text  }}<h3>
           <label>
-            <input type="text" class="input" name="RM" placeholder="No of Rooms"/>
+            <input type="text"  class="input" required name="RM" placeholder="No of Rooms"/>
               <div class="line-box">
                 <div class="line"></div>
               </div>
           </label>
           <label>
-            <input type="text" class="input" name="LSTAT" placeholder="Percentage of Lower status population(Range 0 to 50)"/>
+            <input type="text" class="input" required name="LSTAT" placeholder="Percentage of Lower status population(Range 0 to 50)"/>
               <div class="line-box">
                 <div class="line"></div>
               </div>
           </label>
           <label>
-            <input type="text" class="input" name="TAX" placeholder="Tax(Range 0 to 800)"/>
+            <input type="text" class="input" required name="TAX" placeholder="Tax(Range 0 to 800)"/>
               <div class="line-box">
                 <div class="line"></div>
               </div>
           </label>
           <label>
-            <input type="text" class="input" name="AGE" placeholder="Proportion of owner-occupied units built prior to 1940(Range 0 to 100)"/>
+            <input type="text" class="input"required name="AGE" placeholder="Proportion of owner-occupied units built prior to 1940(Range 0 to 100)"/>
               <div class="line-box">
                 <div class="line"></div>
               </div>
           </label>
           <label>
-            <input type="text" class="input" name="CRIM" placeholder="Crime Rate in Area(Range 0 to 100)"/>
+            <input type="text" class="input" required name="CRIM" placeholder="Crime Rate in Area(Range 0 to 100)"/>
               <div class="line-box">
                 <div class="line"></div>
               </div>
           </label>
           <label>
-            <input type="text" class="input" name="ZN" placeholder="Proportion of residential land(Range 0 to 100)"/>
+            <input type="text" class="input" required name="ZN" placeholder="Proportion of residential land(Range 0 to 100)"/>
               <div class="line-box">
                 <div class="line"></div>
               </div>
           </label>
           <label>
-            <input type="text" class="input" name="INDUS" placeholder="Proportion of non-retail business acres(Range 0 to 40)"/>
+            <input type="text" class="input" required name="INDUS" placeholder="Proportion of non-retail business acres(Range 0 to 40)"/>
               <div class="line-box">
                 <div class="line"></div>
               </div>
           </label
           <label>
-            <input type="text" class="input" name="CHAS" placeholder="Charles River Boundary(0 for No or 1 for Yes)"/>
+            <input type="text" class="input" required name="CHAS" placeholder="Charles River Boundary(0 for No or 1 for Yes)"/>
               <div class="line-box">
                 <div class="line"></div>
               </div>
           </label>
           <label>
-            <input type="text" class="input" name="NOX" placeholder="Nitric Oxides Concentration(Range 0 to 1)"/>
+            <input type="text" class="input" required name="NOX" placeholder="Nitric Oxides Concentration(Range 0 to 1)"/>
               <div class="line-box">
                 <div class="line"></div>
               </div>
           </label>
           <label>
-            <input type="text" class="input" name="DIS" placeholder="Distances to five Boston employment centres(Range 0 to 20)"/>
+            <input type="text" class="input" required name="DIS" placeholder="Distances to five Boston employment centres(Range 0 to 20)"/>
               <div class="line-box">
                 <div class="line"></div>
               </div>
           </label>
           <label>
-            <input type="text" class="input" name="PTRATIO" placeholder="Pupil-Teacher ratio by town(Range 0 to 100)"/>
+            <input type="text" class="input" required name="PTRATIO" placeholder="Pupil-Teacher ratio by town(Range 0 to 100)"/>
               <div class="line-box">
                 <div class="line"></div>
               </div>
           </label>
           <label>
-            <input type="text" class="input" name="B" placeholder="Proportion of blacks by town(Range 0 to 1000)"/>
+            <input type="text" class="input" required name="B" placeholder="Proportion of blacks by town(Range 0 to 1000)"/>
               <div class="line-box">
                 <div class="line"></div>
               </div>
           </label>
           <label>
-            <input type="text" class="input" name="RAD" placeholder="Accessibility to radial highways(Range 0 to 50)"/>
+            <input type="text" class="input" required name="RAD" placeholder="Accessibility to radial highways(Range 0 to 50)"/>
               <div class="line-box">
                 <div class="line"></div>
               </div>
