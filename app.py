@@ -31,7 +31,9 @@ def predict():
         RAD=float(request.form['RAD'])
         PTRATIO=float(request.form['PTRATIO'])
         B=float(request.form['B'])
-        X=pd.DataFrame([CRIM,ZN,INDUS,CHAS,NOX,RM,AGE,DIS,RAD,TAX,PTRATIO,B,LSTAT])
+        X=pd.DataFrame([[CRIM,ZN,INDUS,CHAS,NOX,RM,AGE,DIS,RAD,TAX,PTRATIO,B,LSTAT]],
+        columns=['CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD', 'TAX',
+       'PTRATIO', 'B', 'LSTAT'],dtype=float)
         prediction=model.predict(X)
         output=round(prediction[0],2)
         if output<0:
