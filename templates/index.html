@@ -1,16 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<script type="text/javascript">
-    function clicked() {
-       if (confirm(prediction_text)) {
-           yourformelement.submit();
-       } else {
-           return false;
-       }
-    }
 
-</script>
 <style>
 
 body {
@@ -113,7 +104,7 @@ button:hover {
     <div style="color:blue">
         <form action="{{ url_for('predict')}}" method="post">
           <h2 class="text-warning text-center">Boston House Price Prediction</h2>
-
+          <h3>{{ prediction_text }}<h3>
           <label>
             <input type="text" class="input" name="RM" placeholder="No of Rooms"/>
               <div class="line-box">
@@ -197,7 +188,7 @@ button:hover {
 
 
 
-        <br><br><h3>{{ prediction_text }}<h3>
+        <br><br>
     </div>
 
 
