@@ -5,7 +5,7 @@ import requests
 import pickle
 import numpy as np
 import sklearn
-
+import pandas as pd
 app = Flask(__name__)
 model = pickle.load(open('XBRegressor.pkl', 'rb'))
 @app.route('/',methods=['GET'])
@@ -31,7 +31,7 @@ def predict():
         RAD=float(request.form['RAD'])
         PTRATIO=float(request.form['PTRATIO'])
         B=float(request.form['B'])
-        X=np.array([CRIM,ZN,INDUS,CHAS,NOX,RM,AGE,DIS,RAD,TAX,PTRATIO,B,LSTAT])
+        X=pd.DataFrame([CRIM,ZN,INDUS,CHAS,NOX,RM,AGE,DIS,RAD,TAX,PTRATIO,B,LSTAT])
         prediction=model.predict(X)
         output=round(prediction[0],2)
         if output<0:
