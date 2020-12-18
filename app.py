@@ -15,24 +15,24 @@ def Home():
 
 @app.route("/predict", methods=['POST'])
 def predict():
-    
+
     if request.method == 'POST':
         LSTAT = float(request.form['LSTAT'])
         RM=float(request.form['RM'])
         TAX=float(request.form['TAX'])
-        
+
         AGE=float(request.form['AGE'])
         CRIM=float(request.form['CRIM'])
-        ZN=11.36
-        INDUS=11.36
-        CHAS=1
-        NOX=0.45
-        DIS=5
-        RAD=4
-        PTRATIO=13.40
-        B=100
-      
-        prediction=model.predict([[CRIM,ZN,INDUS,CHAS,NOX,RM,AGE,DIS,RAD,TAX,PTRATIO,B,LSTAT]])
+        ZN=float(request.form['ZN'])
+        INDUS=float(request.form['INDUS'])
+        CHAS=float(request.form['CHAS'])
+        NOX=float(request.form['NOX'])
+        DIS=float(request.form['DIS'])
+        RAD=float(request.form['RAD'])
+        PTRATIO=float(request.form['PTRATIO'])
+        B=float(request.form['B'])
+        X=np.array([CRIM,ZN,INDUS,CHAS,NOX,RM,AGE,DIS,RAD,TAX,PTRATIO,B,LSTAT])
+        prediction=model.predict(X)
         output=round(prediction[0],2)
         if output<0:
             return render_template('index.html',prediction_texts="Sorry you cannot sell this house")
