@@ -35,7 +35,7 @@ def predict():
         columns=['CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD', 'TAX',
        'PTRATIO', 'B', 'LSTAT'],dtype=float)
         prediction=model.predict(X)
-        output=round(prediction[0],2)
+        output=round(prediction[0])
         if output<0:
             return render_template('index.html',prediction_texts="Sorry you cannot sell this house")
         else:
